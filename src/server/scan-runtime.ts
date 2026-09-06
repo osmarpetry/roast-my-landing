@@ -182,10 +182,9 @@ async function simulateCachedScan(
     getScan: () => ScanJob;
   },
 ) {
-  const { appendEvent, updateScan, getScan } = deps;
+  const { appendEvent, updateScan } = deps;
   const sourceScan = cachedRun.scan;
   const sourcePayload = cachedRun.finalPayload;
-  const analysisId = sourceScan.analysisId ?? sourceScan.id;
   const originalSnapshotId = sourceScan.snapshotHash ?? "unknown";
   const originalRunAt = sourceScan.updatedAt ?? sourceScan.createdAt ?? new Date().toISOString();
 

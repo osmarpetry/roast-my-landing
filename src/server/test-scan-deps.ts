@@ -8,7 +8,7 @@ export function resetRequestCounts(): void {
   requestCounts.clear();
 }
 
-function createDefaultMockHtml(url: string): string {
+function createDefaultMockHtml(): string {
   return `
     <!DOCTYPE html>
     <html>
@@ -27,7 +27,7 @@ function createDefaultMockHtml(url: string): string {
   `;
 }
 
-function createDifferentMockHtml(url: string): string {
+function createDifferentMockHtml(): string {
   return `
     <!DOCTYPE html>
     <html>
@@ -62,8 +62,8 @@ function createMockFetch(): typeof fetch {
     // that falls below the 80% similarity threshold, forcing a fresh run.
     const html =
       url.includes("example.net") && count > 1
-        ? createDifferentMockHtml(url)
-        : createDefaultMockHtml(url);
+        ? createDifferentMockHtml()
+        : createDefaultMockHtml();
 
     return new Response(html, {
       status: 200,
